@@ -13,7 +13,7 @@ git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git clang
 
 [ -d "out" ] && rm -rf AnyKernel && rm -rf out || mkdir -p out
 
-make O=out ARCH=arm64 RM6785_defconfig
+make O=out ARCH=arm64 santoni_treble_defconfig
 
 PATH="${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}" \
 make -j$(nproc --all) O=out \
@@ -36,9 +36,9 @@ git clone --depth=1 https://github.com/Johny8988/AnyKernel3.git AnyKernel
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 cd AnyKernel
 date=$(date "+%Y-%m-%d")
-zip -r9 ThunderStorm-Reborn-lto-KERNEL-RM6785-$date.zip *
+zip -r9 newtoni-$date.zip *
 curl -sL https://git.io/file-transfer | sh
-./transfer anon ThunderStorm-Reborn-lto-KERNEL-RM6785-$date.zip
+./transfer anon newtoni-$date.zip
 }
 
 compile
